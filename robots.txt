@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://centrum-ogrodzen.com.pl/sitemap.xml

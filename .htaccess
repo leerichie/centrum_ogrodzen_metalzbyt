@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.centrum-ogrodzen\.com\.pl$ [NC]
+RewriteRule ^ https://centrum-ogrodzen.com.pl%{REQUEST_URI} [L,R=301]
+
+# Force non-www
+RewriteCond %{HTTP_HOST} ^www\.centrum-ogrodzen\.com\.pl$ [NC]
+RewriteRule ^ https://centrum-ogrodzen.com.pl%{REQUEST_URI} [L,R=301]
