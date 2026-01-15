@@ -462,7 +462,7 @@ h2 {
 
 .services-strip {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
   padding: 24px 40px 40px;
   background: #142620;
@@ -706,6 +706,16 @@ h2 {
     font-size: 0.85rem;
   }
 }
+
+@media (max-width: 1200px) {
+  .services-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .services-strip__item h2 {
+    font-size: 1rem;
+  }
+}
+
 
 /* carousel */
 .section__gallery.carousel-ready {
