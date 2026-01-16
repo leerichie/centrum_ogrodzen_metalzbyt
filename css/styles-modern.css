@@ -93,9 +93,7 @@ button:focus,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  /* border: 2px solid #ffffff; */
   background: blue;
-  /* color: #ffffff; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,15 +207,16 @@ html.color-invert .acc-btn--invert {
   }
 }
 
-:root{
-  --bg: #0e1413;
-  --text: #f5f5f5;
-  --accent: #ff8300;
-  --accent2: #6fd08a;
+:root {
+  --bg: #f3f6f3;             
+  --text: #1f2a24;            
+  --accent: #ff8300;          
+  --accent2: #6fae8f;         
   --focus: #ffd3a8;
-  --surface-1: #16312a;
-  --surface-2: #1b3a31;
-  --border-soft: rgba(255, 255, 255, 0.08);
+
+  --surface-1: #e8efe9;       
+  --surface-2: #dce8df;      
+  --border-soft: rgba(0,0,0,.08);
 }
 
 body { background: var(--bg); color: var(--text); }
@@ -225,7 +224,7 @@ a { color: var(--accent); }
 
 html.color-invert {
   --bg: #000;
-  --text: #fff;
+  --text: #black;
   --accent: #00a3ff;  
   --accent2: #7ee08f;
   --focus: #ffd54a;
@@ -286,7 +285,7 @@ h2 {
   justify-content: space-between;
   padding: 10px 40px;
   /* background: rgba(10, 12, 16, 0.94); */
-  background: var(--surface-1);
+  background: rgba(22, 49, 42, 0.92);
   border-bottom: 1px solid var(--border-soft);
   backdrop-filter: blur(10px);
 }
@@ -315,8 +314,8 @@ h2 {
 }
 
 .top-bar__nav a {
-  color: #f5f5f5;
-  position: relative;
+ color: #f5f5f5;  
+ position: relative;
   text-decoration: none; /* underline removed */
 }
 
@@ -351,22 +350,28 @@ h2 {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
+
+  background:
+    radial-gradient(
       circle at top left,
-      rgba(224, 226, 224, 0.35),
-      transparent 55%
+      rgba(255, 255, 255, 0.15),
+      transparent 45%
     ),
+
     radial-gradient(
       circle at bottom right,
       rgba(111, 208, 138, 0.18),
-      transparent 55%
+      transparent 50%
     ),
+
     linear-gradient(
-      to bottom right,
-      rgba(0, 0, 0, 0.78),
-      rgba(0, 0, 0, 0.88)
+      to bottom,
+      rgba(8, 18, 14, 0.88),
+      rgba(8, 18, 14, 0.82) 40%,
+      rgba(8, 18, 14, 0.88)
     );
 }
+
 
 .hero__content {
   position: relative;
@@ -465,9 +470,8 @@ h2 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
   padding: 24px 40px 40px;
-  background: #142620;
+  background: #eef3ef;
   border-bottom: 1px solid var(--border-soft);
-/* fit hero page elements */
   margin-top: -60px;
   position: relative;
   z-index: 3;
@@ -476,8 +480,12 @@ h2 {
 .services-strip__item {
   padding: 24px;
   border-radius: 16px;
-  background: radial-gradient(circle at top left, #1f3b32, #142620 55%);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(
+    to bottom right,
+    #f9fcfa,
+    #e6efe9
+  );
+  box-shadow: 0 10px 20px rgba(0,0,0,.12);
 }
 
 .services-strip__icon {
@@ -500,11 +508,9 @@ h2 {
 }
 
 .services-strip__icon svg {
-    /* color: #ff8300; */
     width: 70%;
     height: 70%;
     display: block;
-    /* fill: currentColor; */
 }
 
 .services-strip__item h2 {
@@ -514,7 +520,7 @@ h2 {
 
 .services-strip__item p {
   font-size: 0.9rem;
-  color: #d6e6dd;
+  color: #5b6c62;
   margin: 10px 0 16px;
 }
 
@@ -525,30 +531,17 @@ h2 {
   letter-spacing: 0.08em;
 }
 
-/* .services-strip__header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.services-strip__header .services-strip__icon {
-  margin-bottom: 0;
-} */
-
-
 .section {
   padding: 60px 40px;
 }
 
 .section--light {
-  background: #f3f6f3;
-  color: #1f2a24;
+  background: #f9fcfa;
 }
 
 .section--dark {
-  background: var(--surface-1);
-  color: #f5f5f5;
+  background: #e6efe9;
+  color: #1f2a24;
 }
 
 .section--contact {
@@ -574,6 +567,17 @@ h2 {
   font-size: 1.7rem;
   margin-bottom: 16px;
 }
+
+.section__text h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--accent2);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
 
 .section__text p {
   margin-bottom: 12px;
@@ -903,7 +907,6 @@ h2 {
 }
 
 
-/* subpages - tightened*/
 .subpage.subpage--compact .section {
   padding: 34px 40px;
 }
@@ -937,12 +940,13 @@ h2 {
   margin: 0 auto;  
 }
 
-.subpage.subpage--compact .section__gallery.carousel-ready img {
+/* card shape for subpages */
+.subpage.subpage--compact .section__gallery .carousel-item {
+  aspect-ratio: 4 / 3;  
   width: 70%;
-  height: 70%;
-  object-fit: cover;
-
+  max-width: 70%;
 }
+
 
 
 @media (max-width: 960px) {
